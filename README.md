@@ -10,6 +10,9 @@ When I’m using my PC, it’s a minor pain to have to unlock my phone, open the
 
 What I wanted was a program sitting in the windows tray to control them. So that’s what I made. It’s in VB.NET. All you need to do is toggle a switch icon on your taskbar.
 
+![Taskbar view](http://chris-stubbs.co.uk/wp/wp-content/uploads/2018/04/wifi2.png)
+[![GUI view](http://chris-stubbs.co.uk/wp/wp-content/uploads/2018/04/wifi1-150x150.png)](http://chris-stubbs.co.uk/wp/wp-content/uploads/2018/04/wifi1.png)
+
 ## Instructions for use
 ### Downloading
 
@@ -17,7 +20,7 @@ Download installer.zip
 
 ### Installing
 
-Extract installer.zip and run setup.exe
+Extract [installer.zip](https://github.com/chrisstubbs93/HS100-WIN-CONTROL/raw/master/installer.zip) and run setup.exe
 
 ## Use
 ### GUI mode
@@ -49,6 +52,7 @@ TPLink_HS100_controller.exe /mode=1 /email=your@mail.co.uk /pass=1234 /id=12345A
 /mode=T - Toggle state of device.
 /email= and /pass= should be the email address and password you use to sign in to your Kasa account.  
 /id= should contain the ID of the device you wish to control. This ID can be obtained by using the GUI version of the program and right clicking the name of the device in question to copy its ID.
+![Copying ID](http://chris-stubbs.co.uk/wp/wp-content/uploads/2019/06/copyID.png)
 
 ## License
 
