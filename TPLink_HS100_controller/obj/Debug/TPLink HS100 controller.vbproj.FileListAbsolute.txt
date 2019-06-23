@@ -1,0 +1,19 @@
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\bin\Debug\TPLink_HS100_controller.exe.config
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\bin\Debug\TPLink_HS100_controller.exe
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\bin\Debug\TPLink_HS100_controller.pdb
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\bin\Debug\TPLink_HS100_controller.xml
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLink HS100 controller.vbprojResolveAssemblyReference.cache
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLinkHS100controller.Form1.resources
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLinkHS100controller.Form2.resources
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLinkHS100controller.Resources.resources
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLink HS100 controller.vbproj.GenerateResource.Cache
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLink_HS100_controller.exe
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLink_HS100_controller.xml
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLink_HS100_controller.pdb
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLink_HS100_controller.TrustInfo.xml
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\bin\Debug\TPLink_HS100_controller.exe.manifest
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\bin\Debug\TPLink_HS100_controller.application
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLink_HS100_controller.exe.manifest
+C:\Users\Chris\Documents\GitHub\HS100\HS100-WIN-CONTROL\TPLink_HS100_controller\obj\Debug\TPLink_HS100_controller.application

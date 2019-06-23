@@ -1,0 +1,1 @@
+TPLink_HS100_controller.exe /mode=T /email=your@mail.co.uk /pass=1234 /id=12345AB1234A1A1234A12345AB123456789ABCD1
