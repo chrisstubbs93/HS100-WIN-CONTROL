@@ -14,13 +14,13 @@ What I wanted was a program sitting in the windows tray to control them. So that
 [![GUI view](http://chris-stubbs.co.uk/wp/wp-content/uploads/2018/04/wifi1-150x150.png)](http://chris-stubbs.co.uk/wp/wp-content/uploads/2018/04/wifi1.png)
 
 ## Instructions for use
-### Downloading
 
-Download installer.zip
 
 ### Installing
 
-Extract [installer.zip](https://github.com/chrisstubbs93/HS100-WIN-CONTROL/raw/master/installer.zip) and run setup.exe
+Uninstall any old versions.  
+Download [installer.zip](https://github.com/chrisstubbs93/HS100-WIN-CONTROL/raw/master/installer.zip).  
+Extract and run setup.exe.  
 
 ## Use
 ### GUI mode
@@ -37,7 +37,7 @@ The list should be populated with the details of each device you have connected.
 4. If you click the x (close) in the top right of the program, it will minimise to the tray.
 You can mouse over the tray icons to see their name, and click them to toggle the state. Right clicking any icon will open the menu again.
 
-5. I recommend you tick the “start in system tray” box and add a shortcut to the program in your startup folder.
+5. I recommend you tick the “start in system tray” box and "Start with Windows".
 
 
 
