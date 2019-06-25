@@ -26,15 +26,51 @@ Partial Friend NotInheritable Class Settings2
         End Get
     End Property
     
-    <Global.System.Configuration.UserScopedSettingAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-    Public Property Amplifier() As Boolean
+    <Global.System.Configuration.UserScopedSettingAttribute(), _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.Configuration.DefaultSettingValueAttribute("")> _
+    Public Property StartOn() As String
         Get
-            Return CType(Me("Amplifier"),Boolean)
+            Return CType(Me("StartOn"), String)
         End Get
-        Set
-            Me("Amplifier") = value
+        Set(value As String)
+            Me("StartOn") = value
+        End Set
+    End Property
+
+    <Global.System.Configuration.UserScopedSettingAttribute(), _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.Configuration.DefaultSettingValueAttribute("")> _
+    Public Property StartOff() As String
+        Get
+            Return CType(Me("StartOff"), String)
+        End Get
+        Set(value As String)
+            Me("StartOff") = value
+        End Set
+    End Property
+
+    <Global.System.Configuration.UserScopedSettingAttribute(), _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.Configuration.DefaultSettingValueAttribute("")> _
+    Public Property QuitOn() As String
+        Get
+            Return CType(Me("QuitOn"), String)
+        End Get
+        Set(value As String)
+            Me("QuitOn") = value
+        End Set
+    End Property
+
+    <Global.System.Configuration.UserScopedSettingAttribute(), _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.Configuration.DefaultSettingValueAttribute("")> _
+    Public Property QuitOff() As String
+        Get
+            Return CType(Me("QuitOff"), String)
+        End Get
+        Set(value As String)
+            Me("QuitOff") = value
         End Set
     End Property
 End Class

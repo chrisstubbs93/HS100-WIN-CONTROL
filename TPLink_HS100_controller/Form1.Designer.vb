@@ -38,6 +38,8 @@ Partial Class Form1
         Me.DeviceURL = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.listviewDevices = New System.Windows.Forms.ListView()
         Me.DeviceState = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.OnDelay = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.OffDelay = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.RightClickCopy = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.dbgMode = New System.Windows.Forms.CheckBox()
@@ -53,8 +55,29 @@ Partial Class Form1
         Me.btnQuit = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.StartInTray = New System.Windows.Forms.CheckBox()
+        Me.lblQueuetitle = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnExtend = New System.Windows.Forms.Button()
+        Me.btnQueue = New System.Windows.Forms.Button()
+        Me.sec = New System.Windows.Forms.NumericUpDown()
+        Me.min = New System.Windows.Forms.NumericUpDown()
+        Me.hrs = New System.Windows.Forms.NumericUpDown()
+        Me.comboQueuestatus = New System.Windows.Forms.ComboBox()
+        Me.comboDeviceQueueList = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblQueueafter = New System.Windows.Forms.Label()
+        Me.lblQueueturn = New System.Windows.Forms.Label()
+        Me.tick = New System.Windows.Forms.Timer(Me.components)
+        Me.StartWithWin = New System.Windows.Forms.CheckBox()
         Me.RightClickCopy.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        CType(Me.sec, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.min, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.hrs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblStep0
@@ -112,7 +135,7 @@ Partial Class Form1
         'btnOn
         '
         Me.btnOn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnOn.Location = New System.Drawing.Point(13, 394)
+        Me.btnOn.Location = New System.Drawing.Point(13, 407)
         Me.btnOn.Name = "btnOn"
         Me.btnOn.Size = New System.Drawing.Size(75, 23)
         Me.btnOn.TabIndex = 7
@@ -122,7 +145,7 @@ Partial Class Form1
         'btnOff
         '
         Me.btnOff.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnOff.Location = New System.Drawing.Point(97, 394)
+        Me.btnOff.Location = New System.Drawing.Point(97, 407)
         Me.btnOff.Name = "btnOff"
         Me.btnOff.Size = New System.Drawing.Size(75, 23)
         Me.btnOff.TabIndex = 8
@@ -132,35 +155,37 @@ Partial Class Form1
         'DeviceName
         '
         Me.DeviceName.Text = "Name"
-        Me.DeviceName.Width = 94
+        Me.DeviceName.Width = 110
         '
         'DeviceStaus
         '
         Me.DeviceStaus.Text = "Status"
-        Me.DeviceStaus.Width = 49
+        Me.DeviceStaus.Width = 45
         '
         'DeviceID
         '
         Me.DeviceID.Text = "ID"
-        Me.DeviceID.Width = 143
+        Me.DeviceID.Width = 180
         '
         'DeviceURL
         '
         Me.DeviceURL.Text = "URL"
+        Me.DeviceURL.Width = 50
         '
         'listviewDevices
         '
         Me.listviewDevices.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.listviewDevices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.DeviceName, Me.DeviceStaus, Me.DeviceID, Me.DeviceURL, Me.DeviceState})
+        Me.listviewDevices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.DeviceName, Me.DeviceStaus, Me.DeviceID, Me.DeviceURL, Me.DeviceState, Me.OnDelay, Me.OffDelay})
         Me.listviewDevices.ContextMenuStrip = Me.RightClickCopy
         Me.listviewDevices.FullRowSelect = True
         Me.listviewDevices.GridLines = True
         Me.listviewDevices.HideSelection = False
         Me.listviewDevices.Location = New System.Drawing.Point(13, 178)
+        Me.listviewDevices.MultiSelect = False
         Me.listviewDevices.Name = "listviewDevices"
-        Me.listviewDevices.Size = New System.Drawing.Size(429, 184)
+        Me.listviewDevices.Size = New System.Drawing.Size(607, 199)
         Me.listviewDevices.TabIndex = 12
         Me.listviewDevices.UseCompatibleStateImageBehavior = False
         Me.listviewDevices.View = System.Windows.Forms.View.Details
@@ -168,6 +193,17 @@ Partial Class Form1
         'DeviceState
         '
         Me.DeviceState.Text = "On/Off"
+        Me.DeviceState.Width = 50
+        '
+        'OnDelay
+        '
+        Me.OnDelay.Text = "OnDelay"
+        Me.OnDelay.Width = 80
+        '
+        'OffDelay
+        '
+        Me.OffDelay.Text = "OffDelay"
+        Me.OffDelay.Width = 80
         '
         'RightClickCopy
         '
@@ -185,12 +221,13 @@ Partial Class Form1
         '
         Me.dbgMode.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dbgMode.AutoSize = True
-        Me.dbgMode.Location = New System.Drawing.Point(12, 435)
+        Me.dbgMode.Location = New System.Drawing.Point(307, 528)
         Me.dbgMode.Name = "dbgMode"
         Me.dbgMode.Size = New System.Drawing.Size(87, 17)
         Me.dbgMode.TabIndex = 13
         Me.dbgMode.Text = "Debug mode"
         Me.dbgMode.UseVisualStyleBackColor = True
+        Me.dbgMode.Visible = False
         '
         'txtPassword
         '
@@ -222,7 +259,7 @@ Partial Class Form1
         '
         Me.lblStep3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblStep3.AutoSize = True
-        Me.lblStep3.Location = New System.Drawing.Point(14, 378)
+        Me.lblStep3.Location = New System.Drawing.Point(14, 391)
         Me.lblStep3.Name = "lblStep3"
         Me.lblStep3.Size = New System.Drawing.Size(135, 13)
         Me.lblStep3.TabIndex = 15
@@ -231,13 +268,12 @@ Partial Class Form1
         'btnCreateSettings
         '
         Me.btnCreateSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnCreateSettings.Location = New System.Drawing.Point(179, 394)
+        Me.btnCreateSettings.Location = New System.Drawing.Point(386, 407)
         Me.btnCreateSettings.Name = "btnCreateSettings"
-        Me.btnCreateSettings.Size = New System.Drawing.Size(204, 23)
+        Me.btnCreateSettings.Size = New System.Drawing.Size(234, 23)
         Me.btnCreateSettings.TabIndex = 17
-        Me.btnCreateSettings.Text = "Create settings for device"
+        Me.btnCreateSettings.Text = "Edit automatic startup/shutdown settings"
         Me.btnCreateSettings.UseVisualStyleBackColor = True
-        Me.btnCreateSettings.Visible = False
         '
         'NotifyIcon1
         '
@@ -266,7 +302,7 @@ Partial Class Form1
         'btnQuit
         '
         Me.btnQuit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnQuit.Location = New System.Drawing.Point(358, 463)
+        Me.btnQuit.Location = New System.Drawing.Point(536, 524)
         Me.btnQuit.Name = "btnQuit"
         Me.btnQuit.Size = New System.Drawing.Size(84, 23)
         Me.btnQuit.TabIndex = 18
@@ -281,18 +317,185 @@ Partial Class Form1
         '
         Me.StartInTray.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.StartInTray.AutoSize = True
-        Me.StartInTray.Location = New System.Drawing.Point(12, 468)
+        Me.StartInTray.Location = New System.Drawing.Point(12, 529)
         Me.StartInTray.Name = "StartInTray"
         Me.StartInTray.Size = New System.Drawing.Size(114, 17)
         Me.StartInTray.TabIndex = 19
         Me.StartInTray.Text = "Start in system tray"
         Me.StartInTray.UseVisualStyleBackColor = True
         '
+        'lblQueuetitle
+        '
+        Me.lblQueuetitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblQueuetitle.AutoSize = True
+        Me.lblQueuetitle.Location = New System.Drawing.Point(14, 449)
+        Me.lblQueuetitle.Name = "lblQueuetitle"
+        Me.lblQueuetitle.Size = New System.Drawing.Size(93, 13)
+        Me.lblQueuetitle.TabIndex = 20
+        Me.lblQueuetitle.Text = "Queue commands"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.btnExtend)
+        Me.Panel1.Controls.Add(Me.btnQueue)
+        Me.Panel1.Controls.Add(Me.sec)
+        Me.Panel1.Controls.Add(Me.min)
+        Me.Panel1.Controls.Add(Me.hrs)
+        Me.Panel1.Controls.Add(Me.comboQueuestatus)
+        Me.Panel1.Controls.Add(Me.comboDeviceQueueList)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.lblQueueafter)
+        Me.Panel1.Controls.Add(Me.lblQueueturn)
+        Me.Panel1.Location = New System.Drawing.Point(12, 465)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(608, 38)
+        Me.Panel1.TabIndex = 21
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(541, 8)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(48, 23)
+        Me.Button1.TabIndex = 26
+        Me.Button1.Text = "Reset"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnExtend
+        '
+        Me.btnExtend.Location = New System.Drawing.Point(484, 8)
+        Me.btnExtend.Name = "btnExtend"
+        Me.btnExtend.Size = New System.Drawing.Size(51, 23)
+        Me.btnExtend.TabIndex = 25
+        Me.btnExtend.Text = "Extend"
+        Me.btnExtend.UseVisualStyleBackColor = True
+        '
+        'btnQueue
+        '
+        Me.btnQueue.Location = New System.Drawing.Point(430, 8)
+        Me.btnQueue.Name = "btnQueue"
+        Me.btnQueue.Size = New System.Drawing.Size(47, 23)
+        Me.btnQueue.TabIndex = 24
+        Me.btnQueue.Text = "Queue"
+        Me.btnQueue.UseVisualStyleBackColor = True
+        '
+        'sec
+        '
+        Me.sec.Location = New System.Drawing.Point(374, 8)
+        Me.sec.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
+        Me.sec.Name = "sec"
+        Me.sec.Size = New System.Drawing.Size(37, 20)
+        Me.sec.TabIndex = 23
+        '
+        'min
+        '
+        Me.min.Location = New System.Drawing.Point(315, 8)
+        Me.min.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
+        Me.min.Name = "min"
+        Me.min.Size = New System.Drawing.Size(37, 20)
+        Me.min.TabIndex = 23
+        '
+        'hrs
+        '
+        Me.hrs.Location = New System.Drawing.Point(256, 8)
+        Me.hrs.Name = "hrs"
+        Me.hrs.Size = New System.Drawing.Size(37, 20)
+        Me.hrs.TabIndex = 23
+        '
+        'comboQueuestatus
+        '
+        Me.comboQueuestatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.comboQueuestatus.FormattingEnabled = True
+        Me.comboQueuestatus.Items.AddRange(New Object() {"Off", "On"})
+        Me.comboQueuestatus.Location = New System.Drawing.Point(164, 8)
+        Me.comboQueuestatus.Name = "comboQueuestatus"
+        Me.comboQueuestatus.Size = New System.Drawing.Size(52, 21)
+        Me.comboQueuestatus.TabIndex = 22
+        '
+        'comboDeviceQueueList
+        '
+        Me.comboDeviceQueueList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.comboDeviceQueueList.FormattingEnabled = True
+        Me.comboDeviceQueueList.Location = New System.Drawing.Point(37, 8)
+        Me.comboDeviceQueueList.Name = "comboDeviceQueueList"
+        Me.comboDeviceQueueList.Size = New System.Drawing.Size(121, 21)
+        Me.comboDeviceQueueList.TabIndex = 21
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(222, 11)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(28, 13)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "after"
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(292, 12)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(21, 13)
+        Me.Label1.TabIndex = 20
+        Me.Label1.Text = "H :"
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(410, 12)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(14, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "S"
+        '
+        'lblQueueafter
+        '
+        Me.lblQueueafter.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblQueueafter.AutoSize = True
+        Me.lblQueueafter.Location = New System.Drawing.Point(351, 12)
+        Me.lblQueueafter.Name = "lblQueueafter"
+        Me.lblQueueafter.Size = New System.Drawing.Size(22, 13)
+        Me.lblQueueafter.TabIndex = 20
+        Me.lblQueueafter.Text = "M :"
+        '
+        'lblQueueturn
+        '
+        Me.lblQueueturn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblQueueturn.AutoSize = True
+        Me.lblQueueturn.Location = New System.Drawing.Point(3, 11)
+        Me.lblQueueturn.Name = "lblQueueturn"
+        Me.lblQueueturn.Size = New System.Drawing.Size(32, 13)
+        Me.lblQueueturn.TabIndex = 20
+        Me.lblQueueturn.Text = "Turn "
+        '
+        'tick
+        '
+        Me.tick.Interval = 1000
+        '
+        'StartWithWin
+        '
+        Me.StartWithWin.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.StartWithWin.AutoSize = True
+        Me.StartWithWin.Location = New System.Drawing.Point(132, 528)
+        Me.StartWithWin.Name = "StartWithWin"
+        Me.StartWithWin.Size = New System.Drawing.Size(114, 17)
+        Me.StartWithWin.TabIndex = 22
+        Me.StartWithWin.Text = "Start with windows"
+        Me.StartWithWin.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(454, 498)
+        Me.ClientSize = New System.Drawing.Size(632, 559)
+        Me.Controls.Add(Me.StartWithWin)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.lblQueuetitle)
         Me.Controls.Add(Me.StartInTray)
         Me.Controls.Add(Me.btnQuit)
         Me.Controls.Add(Me.btnCreateSettings)
@@ -315,6 +518,11 @@ Partial Class Form1
         Me.Text = "TP-Link HS100 WiFi Socket Controller"
         Me.RightClickCopy.ResumeLayout(False)
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        CType(Me.sec, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.min, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.hrs, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -348,5 +556,24 @@ Partial Class Form1
     Friend WithEvents StartInTray As System.Windows.Forms.CheckBox
     Friend WithEvents RightClickCopy As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OnDelay As System.Windows.Forms.ColumnHeader
+    Friend WithEvents OffDelay As System.Windows.Forms.ColumnHeader
+    Friend WithEvents lblQueuetitle As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents lblQueueturn As System.Windows.Forms.Label
+    Friend WithEvents comboQueuestatus As System.Windows.Forms.ComboBox
+    Friend WithEvents comboDeviceQueueList As System.Windows.Forms.ComboBox
+    Friend WithEvents lblQueueafter As System.Windows.Forms.Label
+    Friend WithEvents btnQueue As System.Windows.Forms.Button
+    Friend WithEvents sec As System.Windows.Forms.NumericUpDown
+    Friend WithEvents min As System.Windows.Forms.NumericUpDown
+    Friend WithEvents hrs As System.Windows.Forms.NumericUpDown
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnExtend As System.Windows.Forms.Button
+    Friend WithEvents tick As System.Windows.Forms.Timer
+    Friend WithEvents StartWithWin As System.Windows.Forms.CheckBox
 
 End Class

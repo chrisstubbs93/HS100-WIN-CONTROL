@@ -49,14 +49,22 @@ TPLink_HS100_controller.exe /mode=1 /email=your@mail.co.uk /pass=1234 /id=12345A
 ```
 /mode=1 - Turn on device.  
 /mode=0 - Turn off device.  
-/mode=T - Toggle state of device.
+/mode=T - Toggle state of device.  
 /email= and /pass= should be the email address and password you use to sign in to your Kasa account.  
 /id= should contain the ID of the device you wish to control. This ID can be obtained by using the GUI version of the program and right clicking the name of the device in question to copy its ID.
 ![Copying ID](http://chris-stubbs.co.uk/wp/wp-content/uploads/2019/06/copyID.png)
 
+## Known bugs
+
+I have noticed device status may = 0 when using a VPN. On/off control still seems to work, but behavior may be odd. The TP-Link backend knows you are in a different region.
+
+## Requests
+
+If you would like to make a commercial inquiry to request a custom feature, please email contact@chris-stubbs.co.uk.
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Disclaimer
 
