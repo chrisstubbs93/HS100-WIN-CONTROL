@@ -60,7 +60,7 @@ I have noticed device status may = 0 when using a VPN. On/off control still seem
 
 ## Requests
 
-If you would like to make a commercial inquiry to request a custom feature, please email contact@chris-stubbs.co.uk.
+If you would like to make a commercial inquiry to request a custom feature, please contact me via my website chris-stubbs.co.uk.
 
 ## License
 
